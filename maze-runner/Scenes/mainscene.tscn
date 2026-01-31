@@ -1,29 +1,37 @@
 [gd_scene format=3 uid="uid://dajlrgni5arej"]
 
 [ext_resource type="PackedScene" uid="uid://bfaskw4fohy8n" path="res://Scenes/player.tscn" id="1_5yt03"]
-[ext_resource type="PackedScene" uid="uid://bjsf2mkqcxiuf" path="res://Scenes/wall.tscn" id="2_tcjsh"]
+[ext_resource type="PackedScene" uid="uid://clqemrqoe0p8g" path="res://Scenes/wall_blue.tscn" id="2_c5s60"]
+[ext_resource type="PackedScene" uid="uid://bjsf2mkqcxiuf" path="res://Scenes/wall_static.tscn" id="2_tcjsh"]
+[ext_resource type="PackedScene" uid="uid://d0kyki37iwuv2" path="res://Scenes/wall_purple.tscn" id="3_pcysp"]
+[ext_resource type="PackedScene" uid="uid://d0pkrs8cnd0le" path="res://Scenes/wall_red.tscn" id="4_gjgc6"]
+[ext_resource type="PackedScene" uid="uid://ddgcc313prhu0" path="res://Scenes/wall_white.tscn" id="6_1o021"]
+[ext_resource type="PackedScene" uid="uid://cr80k56276yum" path="res://Scenes/testmaze.tscn" id="7_pcysp"]
 
 [node name="Veggtest" type="Node2D" unique_id=348419336]
 
 [node name="Player" parent="." unique_id=2077401685 instance=ExtResource("1_5yt03")]
 position = Vector2(237, 192)
+scale = Vector2(0.5, 0.5)
+collision_mask = 61
 
-[node name="Wall" parent="." unique_id=463775986 instance=ExtResource("2_tcjsh")]
-position = Vector2(20, -21)
-wall_ID = 2
+[node name="WallStatic" parent="." unique_id=463775986 instance=ExtResource("2_c5s60")]
+position = Vector2(1770, 165)
 
-[node name="Wall2" parent="." unique_id=640964307 instance=ExtResource("2_tcjsh")]
-position = Vector2(644, 137)
-wall_ID = 3
+[node name="WallStatic2" parent="." unique_id=1348340158 instance=ExtResource("3_pcysp")]
+position = Vector2(1742, 569)
 
-[node name="Wall3" parent="." unique_id=958596159 instance=ExtResource("2_tcjsh")]
-position = Vector2(249, 313)
-wall_ID = 4
+[node name="WallStatic3" parent="." unique_id=436390818 instance=ExtResource("4_gjgc6")]
+position = Vector2(1209, 612)
 
-[node name="Wall4" parent="." unique_id=912617556 instance=ExtResource("2_tcjsh")]
-position = Vector2(22, 547)
-wall_ID = 5
+[node name="WallStatic4" parent="." unique_id=546794660 instance=ExtResource("2_tcjsh")]
+position = Vector2(1178, 91)
 
-[node name="Wall5" parent="." unique_id=1154138300 instance=ExtResource("2_tcjsh")]
-position = Vector2(749, 471)
-wall_ID = 6
+[node name="WallStatic5" parent="." unique_id=1598335865 instance=ExtResource("6_1o021")]
+position = Vector2(1748, 367)
+
+[node name="TextureRect" parent="." unique_id=1019997205 instance=ExtResource("7_pcysp")]
+offset_left = 347.0
+offset_top = 44.0
+offset_right = 387.0
+offset_bottom = 84.0
