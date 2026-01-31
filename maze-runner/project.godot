@@ -15,6 +15,11 @@ run/main_scene="uid://dajlrgni5arej"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PropertyContainer="*uid://duy7m5hjav4iy"
+WallClassContainer="*uid://bacs3sm0tt4fo"
+
 [input]
 
 move_up={
