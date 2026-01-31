@@ -12,7 +12,7 @@ texture = ExtResource("1_lql4k")
 0:1/0 = 0
 0:1/0/physics_layer_4/polygon_0/points = PackedVector2Array(-8, 8, -8, -8, 8, -8, 8, 8)
 1:1/0 = 0
-1:1/0/z_index = -1
+1:1/0/z_index = -2
 2:1/0 = 0
 2:1/0/physics_layer_2/polygon_0/points = PackedVector2Array(-8, -2.6666665, 8, -2.6666665, 8, 8, -8, 8)
 3:1/0 = 0
@@ -61,6 +61,10 @@ texture = ExtResource("1_lql4k")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 5:0/0 = 0
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+6:2/0 = 0
+6:3/0 = 0
+6:4/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_j6h4s"]
 physics_layer_0/collision_layer = 2
