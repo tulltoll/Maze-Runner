@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d0pkrs8cnd0le" path="res://Scenes/wall_red.tscn" id="4_gjgc6"]
 [ext_resource type="PackedScene" uid="uid://ddgcc313prhu0" path="res://Scenes/wall_white.tscn" id="6_1o021"]
 [ext_resource type="PackedScene" uid="uid://cr80k56276yum" path="res://Scenes/testmaze.tscn" id="7_pcysp"]
+[ext_resource type="PackedScene" uid="uid://b4uh1s7i1kwjg" path="res://Scenes/tilemap.tscn" id="8_gjgc6"]
 
 [node name="Veggtest" type="Node2D" unique_id=348419336]
 
@@ -31,7 +32,10 @@ position = Vector2(1178, 91)
 position = Vector2(1748, 367)
 
 [node name="TextureRect" parent="." unique_id=1019997205 instance=ExtResource("7_pcysp")]
-offset_left = 347.0
-offset_top = 44.0
-offset_right = 387.0
-offset_bottom = 84.0
+offset_left = 1045.0
+offset_top = 1030.0
+offset_right = 1085.0
+offset_bottom = 1070.0
+
+[node name="TileMapLayer" parent="." unique_id=1762912167 instance=ExtResource("8_gjgc6")]
+position = Vector2(35, 76)
