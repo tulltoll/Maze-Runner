@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 @export var movespeed = 200
 
+var blue_mask_is_on = false
+var red_mask_is_on = false
+
 var static_wall_layer = PropertyContainer.static_wall_layer
 var blue_wall_layer = PropertyContainer.blue_wall_layer
 var red_wall_layer = PropertyContainer.red_wall_layer
@@ -24,5 +27,16 @@ func	 _process(delta: float) -> void:
 	if Input.is_action_pressed("move_right"):
 		velocity.x = movespeed 
 	
+	if Input.is_action_just_pressed("blue_mask"):
+		blue_mask_is_on = !blue_mask_is_on
+		print(blue_mask_is_on)
+		print(collision_mask)
+		Change_Collision()
 	
 	move_and_slide()
+func Change_Collision():
+	set_collision_mask_value(blue_wall_layer, blue_mask_is_on)
+	set_collision_mask_value(red_wall_layer, red_mask_is_on)
+	set_collision_mask_value(purple_wall_layer, blue_mask_is_on and red_mask_is_on)
+	set_collision_mask_value(no_wall_layer, !blue_mask_is_on and !red_mask_is_on)
+	

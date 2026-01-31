@@ -17,3 +17,7 @@ shape = SubResource("RectangleShape2D_0dv0i")
 offset_right = 477.0
 offset_bottom = 128.0
 texture = ExtResource("2_m8ojb")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1871974710]
+offset_right = 40.0
+offset_bottom = 40.0

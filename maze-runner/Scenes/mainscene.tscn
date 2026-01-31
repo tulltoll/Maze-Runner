@@ -1,8 +1,29 @@
 [gd_scene format=3 uid="uid://dajlrgni5arej"]
 
 [ext_resource type="PackedScene" uid="uid://bfaskw4fohy8n" path="res://Scenes/player.tscn" id="1_5yt03"]
+[ext_resource type="PackedScene" uid="uid://bjsf2mkqcxiuf" path="res://Scenes/wall.tscn" id="2_tcjsh"]
 
 [node name="Veggtest" type="Node2D" unique_id=348419336]
 
 [node name="Player" parent="." unique_id=2077401685 instance=ExtResource("1_5yt03")]
 position = Vector2(237, 192)
+
+[node name="Wall" parent="." unique_id=463775986 instance=ExtResource("2_tcjsh")]
+position = Vector2(20, -21)
+wall_ID = 2
+
+[node name="Wall2" parent="." unique_id=640964307 instance=ExtResource("2_tcjsh")]
+position = Vector2(644, 137)
+wall_ID = 3
+
+[node name="Wall3" parent="." unique_id=958596159 instance=ExtResource("2_tcjsh")]
+position = Vector2(249, 313)
+wall_ID = 4
+
+[node name="Wall4" parent="." unique_id=912617556 instance=ExtResource("2_tcjsh")]
+position = Vector2(22, 547)
+wall_ID = 5
+
+[node name="Wall5" parent="." unique_id=1154138300 instance=ExtResource("2_tcjsh")]
+position = Vector2(749, 471)
+wall_ID = 6
