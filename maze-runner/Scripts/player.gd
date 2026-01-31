@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var movespeed = 200
+@export var movespeed = 100
 
 @onready var color = $ColorRect
 
