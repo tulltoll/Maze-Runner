@@ -13,7 +13,7 @@ var no_wall_layer = PropertyContainer.no_wall_layer
 
 func _ready() -> void:
 	collision_layer = PropertyContainer.player_layer # setter player sin collision layer
-	collision_mask = static_wall_layer|blue_wall_layer|red_wall_layer|purple_wall_layer #setter alle layers for de fargede veggenee
+	Change_Collision() #setter alle layers for de fargede veggenee
 	
 func	 _process(delta: float) -> void:
 	velocity.y = 0
@@ -29,14 +29,17 @@ func	 _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("blue_mask"):
 		blue_mask_is_on = !blue_mask_is_on
-		print(blue_mask_is_on)
-		print(collision_mask)
+		print("blue", blue_mask_is_on)
+		Change_Collision()
+	if Input.is_action_just_pressed("red_mask"):
+		red_mask_is_on = !red_mask_is_on
+		print("red", red_mask_is_on)
 		Change_Collision()
 	
 	move_and_slide()
 func Change_Collision():
-	set_collision_mask_value(blue_wall_layer, blue_mask_is_on)
-	set_collision_mask_value(red_wall_layer, red_mask_is_on)
-	set_collision_mask_value(purple_wall_layer, blue_mask_is_on and red_mask_is_on)
-	set_collision_mask_value(no_wall_layer, !blue_mask_is_on and !red_mask_is_on)
+	set_collision_mask_value(blue_wall_layer, !blue_mask_is_on)
+	set_collision_mask_value(red_wall_layer, !red_mask_is_on)
+	set_collision_mask_value(purple_wall_layer, !blue_mask_is_on and !red_mask_is_on)
+	set_collision_mask_value(no_wall_layer, blue_mask_is_on or red_mask_is_on)
 	
