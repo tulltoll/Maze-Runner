@@ -30,4 +30,8 @@ color = Color(1, 1, 1, 0.39215687)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1941416905]
 zoom = Vector2(7, 7)
+limit_left = 0
+limit_top = 0
+limit_right = 528
+limit_bottom = 528
 position_smoothing_enabled = true

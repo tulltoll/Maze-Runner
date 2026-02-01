@@ -19,7 +19,7 @@ func _ready() -> void:
 	collision_layer = PropertyContainer.player_layer # setter player sin collision layer
 	Change_Collision() #setter alle layers for de fargede veggenee
 	
-func	 _process(delta: float) -> void:
+func _process(delta: float) -> void:
 	velocity.y = 0
 	velocity.x = 0
 	if Input.is_action_pressed("move_up"):
@@ -55,6 +55,7 @@ func Change_Collision():
 	elif red_mask_is_on and blue_mask_is_on:
 		set_collision_mask_value(collision_variants["purple"], false)
 		color.color = PropertyContainer.colors["purple"]
+	SignalBus.mask_change.emit(blue_mask_is_on, red_mask_is_on)
 	print(collision_mask)
 	
 func Reset_Collision_Mask():

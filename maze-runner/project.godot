@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PropertyContainer="*uid://duy7m5hjav4iy"
 WallClassContainer="*uid://bacs3sm0tt4fo"
+SignalBus="*uid://b54hsceujht41"
 
 [input]
 
