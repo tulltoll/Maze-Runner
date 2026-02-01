@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cgjfd33f65n6e"]
 
 [ext_resource type="Script" uid="uid://dl8tigi6tdn53" path="res://Scripts/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://beyqfonidpy65" path="res://Asets/player_shadow.png" id="2_6t5aa"]
-[ext_resource type="Texture2D" uid="uid://bodi4hw2y2nno" path="res://Asets/Fumiko.png" id="2_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://uwbd36jhgwq2" path="res://Asets/Mask.png" id="4_vgqql"]
-[ext_resource type="Texture2D" uid="uid://yfn41e1hls" path="res://Asets/white_pixel_middel.png" id="5_fkybt"]
+[ext_resource type="Texture2D" uid="uid://beyqfonidpy65" path="res://Assets/player_shadow.png" id="2_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://bodi4hw2y2nno" path="res://Assets/Fumiko.png" id="2_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://uwbd36jhgwq2" path="res://Assets/Mask.png" id="4_vgqql"]
+[ext_resource type="Texture2D" uid="uid://yfn41e1hls" path="res://Assets/white_pixel_middel.png" id="5_fkybt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
 radius = 88.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beyqfonidpy65"
-path="res://.godot/imported/player_shadow.png-8b1effbacb96337d67672b32c1ff1b60.ctex"
+uid="uid://bodi4hw2y2nno"
+path="res://.godot/imported/Fumiko.png-03adeddc4836cfea1661d28c86970807.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asets/player_shadow.png"
-dest_files=["res://.godot/imported/player_shadow.png-8b1effbacb96337d67672b32c1ff1b60.ctex"]
+source_file="res://Assets/Fumiko.png"
+dest_files=["res://.godot/imported/Fumiko.png-03adeddc4836cfea1661d28c86970807.ctex"]
 
 [params]
 
