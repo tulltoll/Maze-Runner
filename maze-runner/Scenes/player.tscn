@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bodi4hw2y2nno" path="res://Assets/Fumiko.png" id="2_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://uwbd36jhgwq2" path="res://Assets/Mask.png" id="4_vgqql"]
 [ext_resource type="Texture2D" uid="uid://yfn41e1hls" path="res://Assets/white_pixel_middel.png" id="5_fkybt"]
+[ext_resource type="AudioStream" uid="uid://bokc4jiklsccn" path="res://Audio/sfx_mask swap.wav" id="6_x3wgy"]
+[ext_resource type="AudioStream" uid="uid://crdkjjxunhj15" path="res://Audio/sfx_midiwalk 2.wav" id="7_3smsa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
 radius = 88.0
@@ -219,6 +221,10 @@ vframes = 8
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1675083530]
 zoom = Vector2(5, 5)
+limit_left = 0
+limit_top = 0
+limit_right = 528
+limit_bottom = 528
 position_smoothing_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=718942455]
@@ -245,3 +251,8 @@ collision_mask = 64
 shape = SubResource("CircleShape2D_onrkg")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="mask_swap" type="AudioStreamPlayer2D" parent="." unique_id=1981778719]
+stream = ExtResource("6_x3wgy")
+
+[node name="walk" type="AudioStreamPlayer2D" parent="." unique_id=1780886857]
+stream = ExtResource("7_3smsa")

@@ -11,6 +11,8 @@ var player_input_vector : Vector2
 
 @onready var player_animation: AnimationPlayer = $AnimationPlayer
 @onready var player_sprite: Sprite2D = $"Player sprite"
+@onready var mask_swap = $mask_swap
+@onready var walk = $walk
 var player_animation_type_string: String
 @export var player_animation_stand_threshold = 100
 @export var player_animation_walk_threshold = 750
@@ -170,6 +172,8 @@ func _process( delta: float ) -> void:
 
 func Change_Collision():
 	Reset_Collision_Mask()
+	mask_swap.playing = true
+	SignalBus.mask_change.emit()
 	if !blue_mask_is_on and !red_mask_is_on:
 		set_collision_mask_value(collision_variants["white"], false)
 	elif blue_mask_is_on and !red_mask_is_on:
