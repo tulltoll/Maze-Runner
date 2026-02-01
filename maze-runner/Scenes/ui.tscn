@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b4e1brsl1h1ht"]
+
+[ext_resource type="Script" uid="uid://bic3abrm3stad" path="res://Scripts/UI.gd" id="1_jxero"]
+
+[node name="UI" type="Control" unique_id=427984612]
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jxero")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1908736646]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)

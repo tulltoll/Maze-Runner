@@ -165,6 +165,7 @@ func _process( delta: float ) -> void:
 func Change_Collision():
 	Reset_Collision_Mask()
 	mask_swap.playing = true
+	SignalBus.mask_change.emit()
 	if !blue_mask_is_on and !red_mask_is_on:
 		set_collision_mask_value(collision_variants["white"], false)
 	elif blue_mask_is_on and !red_mask_is_on:
