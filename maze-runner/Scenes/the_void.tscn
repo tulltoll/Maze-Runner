@@ -1,5 +1,6 @@
-[gd_scene format=3 uid="uid://imxa3vuabf47"]
+[gd_scene format=3 uid="uid://x2vtmgpgnmdr"]
 
+[ext_resource type="Script" uid="uid://dl6h4g0lujgt4" path="res://Scripts/the_void.gd" id="1_5ymyl"]
 [ext_resource type="Texture2D" uid="uid://f1t3kyi7yvpw" path="res://Assets/the_void.png" id="1_g703r"]
 [ext_resource type="Texture2D" uid="uid://h6wubgcoqhic" path="res://Assets/Black_pixel.png" id="2_gcqhr"]
 
@@ -25,8 +26,10 @@ scale_curve = SubResource("CurveTexture_p5pbf")
 radius = 8.0
 
 [node name="TheVoid" type="Area2D" unique_id=733811498]
-z_index = 10
-scale = Vector2(7, 7)
+z_index = 1
+collision_layer = 64
+collision_mask = 64
+script = ExtResource("1_5ymyl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1506214151]
 texture = ExtResource("1_g703r")
