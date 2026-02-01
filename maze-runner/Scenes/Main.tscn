@@ -1,8 +1,10 @@
-[gd_scene format=3 uid="uid://dsu5spxa31avy"]
+[gd_scene format=3 uid="uid://dqky6bnkc5kih"]
 
 [ext_resource type="PackedScene" uid="uid://cgjfd33f65n6e" path="res://Scenes/player.tscn" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://bjsf2mkqcxiuf" path="res://Scenes/wall.tscn" id="2_idj7w"]
 [ext_resource type="PackedScene" uid="uid://x2vtmgpgnmdr" path="res://Scenes/the_void.tscn" id="3_kln2b"]
+[ext_resource type="PackedScene" path="res://Scenes/player.tscn" id="1_r150o"]
+[ext_resource type="PackedScene" path="res://Scenes/wall.tscn" id="2_idj7w"]
 
 [node name="Main" type="Node" unique_id=464500276]
 

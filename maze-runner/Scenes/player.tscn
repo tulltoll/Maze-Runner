@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cgjfd33f65n6e"]
+[gd_scene format=3 uid="uid://bj2hcu3iia8u"]
 
 [ext_resource type="Script" uid="uid://dl8tigi6tdn53" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://beyqfonidpy65" path="res://Assets/player_shadow.png" id="2_6t5aa"]
@@ -193,8 +193,11 @@ scale = Vector2(0.3, 0.3)
 collision_mask = 2
 slide_on_ceiling = false
 script = ExtResource("1_cvnsp")
-axeleration = 4000
-bounce_reduction = 0.8
+axeleration = 1000
+friction = 0.75
+bounce_reduction = 0.5
+player_animation_stand_threshold = 25
+player_animation_walk_threshold = 187
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=365376950]
 shape = SubResource("CircleShape2D_onrkg")
@@ -212,7 +215,8 @@ hframes = 17
 vframes = 8
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1675083530]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(5, 5)
+position_smoothing_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=718942455]
 libraries/ = SubResource("AnimationLibrary_fkybt")
