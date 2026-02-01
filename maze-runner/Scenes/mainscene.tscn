@@ -5,9 +5,12 @@
 [ext_resource type="Script" path="res://Scripts/song_main_them.gd" id="4_c5s60"]
 [ext_resource type="PackedScene" uid="uid://b4e1brsl1h1ht" path="res://Scenes/ui.tscn" id="5_c5s60"]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://imxa3vuabf47" path="res://Scenes/the_void.tscn" id="5_hjw3j"]
 [ext_resource type="PackedScene" uid="uid://d2rjx8y4e88ts" path="res://Scenes/key_pice.tscn" id="7_pcysp"]
 [ext_resource type="PackedScene" uid="uid://bxli0iq4wxuhb" path="res://Scenes/end_orbe.tscn" id="8_1o021"]
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 [ext_resource type="PackedScene" path="res://Scenes/tilemap.tscn" id="8_gjgc6"]
@@ -34,6 +37,7 @@ script = ExtResource("4_c5s60")
 
 [node name="UI" parent="." unique_id=427984612 instance=ExtResource("5_c5s60")]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 offset_left = -20.0
 offset_top = 90.0
 offset_right = -20.0
@@ -55,5 +59,7 @@ pice_number = "3"
 
 [node name="EndOrbe" parent="." unique_id=2029896792 instance=ExtResource("8_1o021")]
 position = Vector2(366, 365)
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
