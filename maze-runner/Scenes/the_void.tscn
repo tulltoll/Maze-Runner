@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://x2vtmgpgnmdr"]
 
-[ext_resource type="Texture2D" uid="uid://f1t3kyi7yvpw" path="res://Asets/the_void.png" id="1_g703r"]
+[ext_resource type="Texture2D" uid="uid://f1t3kyi7yvpw" path="res://Assets/the_void.png" id="1_g703r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gcqhr"]
 radius = 8.0

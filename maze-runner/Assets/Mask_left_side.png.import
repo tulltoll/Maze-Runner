@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f1t3kyi7yvpw"
-path="res://.godot/imported/the_void.png-8a0ff7a37db232c47fdb609463f5c6f8.ctex"
+uid="uid://bv22nsdfpad61"
+path="res://.godot/imported/Mask_left_side.png-6d2b4ec7b59dba80fdf57e211bc2f79d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asets/the_void.png"
-dest_files=["res://.godot/imported/the_void.png-8a0ff7a37db232c47fdb609463f5c6f8.ctex"]
+source_file="res://Assets/Mask_left_side.png"
+dest_files=["res://.godot/imported/Mask_left_side.png-6d2b4ec7b59dba80fdf57e211bc2f79d.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yfn41e1hls"
-path="res://.godot/imported/white_pixel_middel.png-3bf16821fdd0900aadc00ce353c8345f.ctex"
+uid="uid://ceyax63rgc3em"
+path="res://.godot/imported/white_pixel_left.png-bc13a1dd014fefb1391bf8dec4f933a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asets/white_pixel_middel.png"
-dest_files=["res://.godot/imported/white_pixel_middel.png-3bf16821fdd0900aadc00ce353c8345f.ctex"]
+source_file="res://Assets/white_pixel_left.png"
+dest_files=["res://.godot/imported/white_pixel_left.png-bc13a1dd014fefb1391bf8dec4f933a5.ctex"]
 
 [params]
 

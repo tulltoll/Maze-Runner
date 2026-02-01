@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv22nsdfpad61"
-path="res://.godot/imported/Mask_left_side.png-0ca544ab5fbc61da52cf7bc6d6df207d.ctex"
+uid="uid://yfn41e1hls"
+path="res://.godot/imported/white_pixel_middel.png-1567d2bef6b012c279b49dacfd994979.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asets/Mask_left_side.png"
-dest_files=["res://.godot/imported/Mask_left_side.png-0ca544ab5fbc61da52cf7bc6d6df207d.ctex"]
+source_file="res://Assets/white_pixel_middel.png"
+dest_files=["res://.godot/imported/white_pixel_middel.png-1567d2bef6b012c279b49dacfd994979.ctex"]
 
 [params]
 
