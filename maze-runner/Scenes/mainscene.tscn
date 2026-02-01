@@ -1,9 +1,13 @@
-[gd_scene format=4 uid="uid://dajlrgni5arej"]
+[gd_scene format=4 uid="uid://ce42y1n16nwqk"]
 
 [ext_resource type="PackedScene" uid="uid://bj2hcu3iia8u" path="res://Scenes/player.tscn" id="1_5yt03"]
 [ext_resource type="AudioStream" uid="uid://bgbduxhtcenoc" path="res://Audio/Mazk Runner Theme.wav" id="3_a3v7h"]
+[ext_resource type="Script" path="res://Scripts/song_main_them.gd" id="4_c5s60"]
 [ext_resource type="PackedScene" uid="uid://b4e1brsl1h1ht" path="res://Scenes/ui.tscn" id="5_c5s60"]
-[ext_resource type="PackedScene" uid="uid://b4uh1s7i1kwjg" path="res://Scenes/tilemap.tscn" id="8_gjgc6"]
+[ext_resource type="PackedScene" uid="uid://imxa3vuabf47" path="res://Scenes/the_void.tscn" id="5_hjw3j"]
+[ext_resource type="PackedScene" uid="uid://d2rjx8y4e88ts" path="res://Scenes/key_pice.tscn" id="7_pcysp"]
+[ext_resource type="PackedScene" uid="uid://bxli0iq4wxuhb" path="res://Scenes/end_orbe.tscn" id="8_1o021"]
+[ext_resource type="PackedScene" path="res://Scenes/tilemap.tscn" id="8_gjgc6"]
 
 [node name="Veggtest" type="Node2D" unique_id=348419336]
 
@@ -23,9 +27,27 @@ player_animation_walk_threshold = 75
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1343425195]
 stream = ExtResource("3_a3v7h")
 autoplay = true
+script = ExtResource("4_c5s60")
 
 [node name="UI" parent="." unique_id=427984612 instance=ExtResource("5_c5s60")]
 offset_left = -20.0
 offset_top = 90.0
 offset_right = -20.0
 offset_bottom = 90.0
+
+[node name="TheVoid" parent="." unique_id=733811498 instance=ExtResource("5_hjw3j")]
+position = Vector2(31, 30)
+
+[node name="KeyPice" parent="." unique_id=63108645 instance=ExtResource("7_pcysp")]
+position = Vector2(415, 445)
+pice_number = "3"
+
+[node name="KeyPice2" parent="." unique_id=2043887844 instance=ExtResource("7_pcysp")]
+position = Vector2(499, 112)
+
+[node name="KeyPice3" parent="." unique_id=1555072900 instance=ExtResource("7_pcysp")]
+position = Vector2(127, 223)
+pice_number = "3"
+
+[node name="EndOrbe" parent="." unique_id=2029896792 instance=ExtResource("8_1o021")]
+position = Vector2(366, 365)

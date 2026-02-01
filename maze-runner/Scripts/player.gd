@@ -37,8 +37,10 @@ var red_mask_is_on = false
 var collision_variants = {"blue" : 3, "red" : 4, "purple" : 5, "white" : 6}
 
 func _ready():
-	collision_layer = PropertyContainer.player_layer # setter player sin collision layer
+	collision_layer = 1 # setter player sin collision layer
 	Change_Collision() #setter alle layers for de fargede veggenee
+	
+	SignalBus.player_position = position
 
 
 func _process( delta: float ) -> void:
@@ -67,6 +69,12 @@ func _process( delta: float ) -> void:
 		velocity = velocity.bounce( collision.get_normal( ) )
 		
 		velocity *=  bounce_reduction
+	
+	#send out player position for the_void to find
+	
+	if velocity != Vector2(0,0):
+		
+		SignalBus.player_position = position
 	
 	#animations and sprite:
 	
@@ -117,7 +125,7 @@ func _process( delta: float ) -> void:
 			
 			mask.flip_h = false
 			mask.texture = MASK_LEFT
-			mask.z_index = 3
+			mask.z_index = 4
 			
 			mask_eye_color.texture = WHITE_PIXEL_LEFT
 			mask_eye_color.flip_h = false
@@ -126,7 +134,7 @@ func _process( delta: float ) -> void:
 			
 			mask.flip_h = false
 			mask.texture = MASK_RIGHT
-			mask.z_index = 3
+			mask.z_index = 4
 			
 			mask_eye_color.texture = WHITE_PIXEL_LEFT
 			mask_eye_color.flip_h = true
@@ -134,24 +142,24 @@ func _process( delta: float ) -> void:
 	else:
 		
 		mask_eye_color.texture = WHITE_PIXEL_MIDDEL
+		player_sprite.flip_h = false
 		
 		if player_look_direction.y > 0:
 		
+			mask.z_index = 3
 			mask.flip_h = false
 			mask.texture = MASK
-			mask.z_index = 3
 			
-			player_sprite.flip_h = false
 			player_animation.current_animation = player_animation_type_string + "_down"
 			
 		elif player_look_direction.y < 0:
 			
 			mask.z_index = 1
-			mask.texture = MASK
 			mask.flip_h = true
+			mask.texture = MASK
 			
-			player_sprite.flip_h = false
 			player_animation.current_animation = player_animation_type_string + "_up"
+	
 	#endring av maske
 	if Input.is_action_just_pressed("blue_mask") and !Input.is_action_just_pressed("red_mask"):
 		blue_mask_is_on = !blue_mask_is_on
@@ -184,8 +192,36 @@ func Change_Collision():
 		set_collision_mask_value(collision_variants["purple"], false)
 		mask_eye_color.modulate = Color(1,0,1)
 	SignalBus.mask_change.emit(blue_mask_is_on, red_mask_is_on)
+	#SignalBus.mask_change.emit(blue_mask_is_on, red_mask_is_on)
 	print(collision_mask)
 	
 func Reset_Collision_Mask():
 	for i in range(5):
 		set_collision_mask_value(i + 2, true)
+
+
+func _on_area_2d_area_entered( area: Area2D ) -> void:
+	
+	print()
+	
+	if area.name.contains( "oid" ):
+		
+		restart_game( )
+		
+	elif area.name.contains( "be" ) and SignalBus.key_pice_amount_picket_up == 3:
+		
+		get_tree( ).change_scene_to_file("res://Scenes/end_scene.tscn")
+	
+	print(SignalBus.key_pice_amount_picket_up)
+
+func restart_game():
+	
+	for child in get_parent( ).get_children( ):
+		
+		if child is AudioStreamPlayer2D:
+		
+			SignalBus.sound_loop_location = child.get_playback_position( )
+	
+	SignalBus.key_pice_amount_picket_up = 0
+	
+	get_tree( ).reload_current_scene( )

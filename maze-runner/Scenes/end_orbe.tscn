@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bxli0iq4wxuhb"]
+
+[ext_resource type="Texture2D" uid="uid://djk6rfa827jnt" path="res://Assets/Exit Orb.png" id="1_qxx5m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cssji"]
+radius = 13.0
+
+[node name="EndOrbe" type="Area2D" unique_id=2029896792]
+collision_layer = 65
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=528830856]
+shape = SubResource("CircleShape2D_cssji")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1375140956]
+position = Vector2(0, -2)
+texture = ExtResource("1_qxx5m")
