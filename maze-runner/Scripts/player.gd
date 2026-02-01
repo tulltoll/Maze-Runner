@@ -17,14 +17,14 @@ var player_look_direction : Vector2
 
 @onready var mask: Sprite2D = $Mask
 @onready var mask_orginal_position = mask.position
-const MASK = preload("res://Asets/Mask.png")
-const MASK_LEFT = preload("res://Asets/Mask_left_side.png")
-const MASK_RIGHT = preload("res://Asets/Mask_right_side.png")
+const MASK = preload("res://Assets/Mask.png")
+const MASK_LEFT = preload("res://Assets/Mask_left_side.png")
+const MASK_RIGHT = preload("res://Assets/Mask_right_side.png")
 @export var mask_run_displasment = 20
 
 @onready var mask_eye_color: Sprite2D = $"Mask/Mask eye color"
-const WHITE_PIXEL_MIDDEL = preload("res://Asets/white_pixel_middel.png")
-const WHITE_PIXEL_LEFT = preload("res://Asets/white_pixel_left.png")
+const WHITE_PIXEL_MIDDEL = preload("res://Assets/white_pixel_middel.png")
+const WHITE_PIXEL_LEFT = preload("res://Assets/white_pixel_left.png")
 
 
 

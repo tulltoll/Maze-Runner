@@ -1,16 +1,45 @@
 [gd_scene format=3 uid="uid://x2vtmgpgnmdr"]
 
 [ext_resource type="Texture2D" uid="uid://f1t3kyi7yvpw" path="res://Assets/the_void.png" id="1_g703r"]
+[ext_resource type="Texture2D" uid="uid://h6wubgcoqhic" path="res://Assets/Black_pixel.png" id="2_gcqhr"]
+
+[sub_resource type="Curve" id="Curve_5ymyl"]
+_limits = [-1.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0.28140187), 0.0, 0.0, 0, 0, Vector2(0.4138577, 1.391048), 0.0, 0.0, 0, 0, Vector2(0.7471911, 0.34906328), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_p5pbf"]
+curve = SubResource("Curve_5ymyl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tcgp2"]
+lifetime_randomness = 0.25
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 3.0
+gravity = Vector3(0, 0, 0)
+damping_max = 35.140003
+scale_curve = SubResource("CurveTexture_p5pbf")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gcqhr"]
 radius = 8.0
 
 [node name="TheVoid" type="Area2D" unique_id=733811498]
+z_index = 10
+scale = Vector2(7, 7)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1506214151]
 texture = ExtResource("1_g703r")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1206993978]
+scale = Vector2(14, 14)
+texture = ExtResource("2_gcqhr")
+lifetime = 0.6
+speed_scale = 0.25
+fixed_fps = 0
+trail_lifetime = 0.01
+process_material = SubResource("ParticleProcessMaterial_tcgp2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=883147329]
+visible = false
 shape = SubResource("CircleShape2D_gcqhr")
