@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://cgihfx8fjekyl"]
+[gd_scene format=3 uid="uid://6irpab1nv2g6"]
 
 [ext_resource type="Texture2D" uid="uid://bhtptt7nkdhla" path="res://Sprites/titlescreen gamejam 2026 2-Sheet.png" id="1_3lblr"]
 [ext_resource type="Texture2D" uid="uid://oy74yddqdbco" path="res://Sprites/titlescreen gamejam 2026 button1.png" id="1_h87bp"]
 [ext_resource type="Texture2D" uid="uid://bnqtu3bre3vfx" path="res://Sprites/titlescreen gamejam 2026 button2.png" id="2_qf0g6"]
-[ext_resource type="Script" uid="uid://dttiy31r1mwv1" path="res://Scenes/playbutton.gd" id="2_wshof"]
+[ext_resource type="Script" path="res://Scenes/playbutton.gd" id="2_wshof"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3lblr"]
 atlas = ExtResource("1_3lblr")
