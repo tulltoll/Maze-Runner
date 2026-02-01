@@ -5,6 +5,9 @@ signal mask_change
 var player_position : Vector2 = Vector2(0,0)
 
 var key_pice_amount_picket_up : int = 0
+
+var sound_loop_location = 0.0
+
 var blue_mask_on = false
 var red_mask_on = false
 

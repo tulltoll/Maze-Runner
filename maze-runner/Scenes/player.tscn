@@ -231,7 +231,7 @@ position_smoothing_enabled = true
 libraries/ = SubResource("AnimationLibrary_fkybt")
 
 [node name="Mask" type="Sprite2D" parent="." unique_id=46805869]
-z_index = 4
+z_index = 2
 position = Vector2(0, -258)
 scale = Vector2(14, 14)
 texture = ExtResource("4_vgqql")
@@ -250,9 +250,10 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1788073851]
 shape = SubResource("CircleShape2D_onrkg")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [node name="mask_swap" type="AudioStreamPlayer2D" parent="." unique_id=1981778719]
 stream = ExtResource("6_x3wgy")
 
 [node name="walk" type="AudioStreamPlayer2D" parent="." unique_id=1780886857]
 stream = ExtResource("7_3smsa")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -190,8 +190,18 @@ func Reset_Collision_Mask():
 		set_collision_mask_value(i + 2, true)
 
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
+func _on_area_2d_area_entered( area: Area2D ) -> void:
 	
-	if area.name.contains("oid"):
+	if area.name.contains( "oid" ):
 		
-		get_tree().reload_current_scene()
+		restart_game( )
+
+func restart_game():
+	
+	for child in get_parent( ).get_children( ):
+		
+		if child is AudioStreamPlayer2D:
+		
+			SignalBus.sound_loop_location = child.get_playback_position( )
+	
+	get_tree( ).reload_current_scene( )
