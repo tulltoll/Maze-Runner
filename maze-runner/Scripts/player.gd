@@ -1,66 +1,5 @@
-extends CharacterBody2D
 
-@export var movespeed = 100
-
-@onready var color = $ColorRect
-
-var blue_mask_is_on = false
-var red_mask_is_on = false
-
-var static_wall_layer = PropertyContainer.static_wall_layer
-var blue_wall_layer = PropertyContainer.blue_wall_layer
-var red_wall_layer = PropertyContainer.red_wall_layer
-var purple_wall_layer = PropertyContainer.red_wall_layer
-var no_wall_layer = PropertyContainer.no_wall_layer
-
-var collision_variants = {"blue" : 3, "red" : 4, "purple" : 5, "white" : 6}
-
-func _ready() -> void:
-	collision_layer = PropertyContainer.player_layer # setter player sin collision layer
-	Change_Collision() #setter alle layers for de fargede veggenee
 	
-func _process(delta: float) -> void:
-	velocity.y = 0
-	velocity.x = 0
-	if Input.is_action_pressed("move_up"):
-		velocity.y = movespeed * -1
-	if Input.is_action_pressed("move_down"):
-		velocity.y = movespeed
-	if Input.is_action_pressed("move_left"):
-		velocity.x = movespeed * -1
-	if Input.is_action_pressed("move_right"):
-		velocity.x = movespeed 
-	
-	if Input.is_action_just_pressed("blue_mask"):
-		blue_mask_is_on = !blue_mask_is_on
-		print("blue", red_mask_is_on)
-		Change_Collision()
-	if Input.is_action_just_pressed("red_mask"):
-		red_mask_is_on = !red_mask_is_on
-		print("red", red_mask_is_on)
-		Change_Collision()
-	
-	move_and_slide()
-func Change_Collision():
-	Reset_Collision_Mask()
-	if !blue_mask_is_on and !red_mask_is_on:
-		set_collision_mask_value(collision_variants["white"], false)
-		color.color = Color(0,0,0,0)
-	elif blue_mask_is_on and !red_mask_is_on:
-		set_collision_mask_value(collision_variants["blue"], false)
-		color.color = PropertyContainer.colors["blue"]
-	elif red_mask_is_on and !blue_mask_is_on:
-		set_collision_mask_value(collision_variants["red"], false)
-		color.color = PropertyContainer.colors["red"]
-	elif red_mask_is_on and blue_mask_is_on:
-		set_collision_mask_value(collision_variants["purple"], false)
-		color.color = PropertyContainer.colors["purple"]
-	SignalBus.mask_change.emit(blue_mask_is_on, red_mask_is_on)
-	print(collision_mask)
-	
-func Reset_Collision_Mask():
-	for i in range(5):
-		set_collision_mask_value(i + 2, true)
 extends CharacterBody2D
 
 
@@ -80,16 +19,23 @@ var player_look_direction : Vector2
 
 @onready var mask: Sprite2D = $Mask
 @onready var mask_orginal_position = mask.position
-const MASK = preload("res://Asets/Mask.png")
-const MASK_LEFT = preload("res://Asets/Mask_left_side.png")
-const MASK_RIGHT = preload("res://Asets/Mask_right_side.png")
+const MASK = preload("res://Assets/Mask.png")
+const MASK_LEFT = preload("res://Assets/Mask_left_side.png")
+const MASK_RIGHT = preload("res://Assets/Mask_right_side.png")
 @export var mask_run_displasment = 20
 
 @onready var mask_eye_color: Sprite2D = $"Mask/Mask eye color"
-const WHITE_PIXEL_MIDDEL = preload("res://Asets/white_pixel_middel.png")
-const WHITE_PIXEL_LEFT = preload("res://Asets/white_pixel_left.png")
+const WHITE_PIXEL_MIDDEL = preload("res://Assets/white_pixel_middel.png")
+const WHITE_PIXEL_LEFT = preload("res://Assets/white_pixel_left.png")
 
+var blue_mask_is_on = false
+var red_mask_is_on = false
 
+var collision_variants = {"blue" : 3, "red" : 4, "purple" : 5, "white" : 6}
+
+func _ready():
+	collision_layer = PropertyContainer.player_layer # setter player sin collision layer
+	Change_Collision() #setter alle layers for de fargede veggenee
 
 
 func _process( delta: float ) -> void:
@@ -203,3 +149,29 @@ func _process( delta: float ) -> void:
 			
 			player_sprite.flip_h = false
 			player_animation.current_animation = player_animation_type_string + "_up"
+	#endring av maske
+	if Input.is_action_just_pressed("blue_mask"):
+		blue_mask_is_on = !blue_mask_is_on
+		print("blue", red_mask_is_on)
+		Change_Collision()
+	if Input.is_action_just_pressed("red_mask"):
+		red_mask_is_on = !red_mask_is_on
+		print("red", red_mask_is_on)
+		Change_Collision()
+
+func Change_Collision():
+	Reset_Collision_Mask()
+	if !blue_mask_is_on and !red_mask_is_on:
+		set_collision_mask_value(collision_variants["white"], false)
+	elif blue_mask_is_on and !red_mask_is_on:
+		set_collision_mask_value(collision_variants["blue"], false)
+	elif red_mask_is_on and !blue_mask_is_on:
+		set_collision_mask_value(collision_variants["red"], false)
+	elif red_mask_is_on and blue_mask_is_on:
+		set_collision_mask_value(collision_variants["purple"], false)
+	SignalBus.mask_change.emit(blue_mask_is_on, red_mask_is_on)
+	print(collision_mask)
+	
+func Reset_Collision_Mask():
+	for i in range(5):
+		set_collision_mask_value(i + 2, true)
