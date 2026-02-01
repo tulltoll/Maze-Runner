@@ -1,10 +1,17 @@
 [gd_scene format=3 uid="uid://d2rjx8y4e88ts"]
 
+<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://3815bml0ijq0" path="res://Scripts/key_pice.gd" id="1_mi0wa"]
 [ext_resource type="Texture2D" uid="uid://dqfoqvnlx2cc5" path="res://Assets/Key 1 Animated.png" id="2_bykkk"]
 [ext_resource type="Texture2D" uid="uid://hmy13sjrunp8" path="res://Assets/Key 2 Animated.png" id="3_d7rae"]
 [ext_resource type="Texture2D" uid="uid://clxmc38u830hp" path="res://Assets/key 3 animated.png" id="4_se4vm"]
 [ext_resource type="AudioStream" uid="uid://cshkwt6goqcmq" path="res://Audio/pling.mp3" id="5_bykkk"]
+=======
+[ext_resource type="Script" path="res://Scripts/key_pice.gd" id="1_mi0wa"]
+[ext_resource type="Texture2D" path="res://Assets/Key 1 Animated.png" id="2_bykkk"]
+[ext_resource type="Texture2D" path="res://Assets/Key 2 Animated.png" id="3_d7rae"]
+[ext_resource type="Texture2D" path="res://Assets/key 3 animated.png" id="4_se4vm"]
+>>>>>>> Stashed changes
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nj1yx"]
 atlas = ExtResource("2_bykkk")
@@ -183,7 +190,10 @@ animation = &"3"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=452474226]
 shape = SubResource("RectangleShape2D_rc4f6")
 
+<<<<<<< Updated upstream
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=410757519]
 stream = ExtResource("5_bykkk")
 
+=======
+>>>>>>> Stashed changes
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

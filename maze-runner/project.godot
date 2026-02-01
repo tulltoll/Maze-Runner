@@ -11,7 +11,11 @@ config_version=5
 [application]
 
 config/name="Maze-Runner"
+<<<<<<< Updated upstream
 run/main_scene="uid://6irpab1nv2g6"
+=======
+run/main_scene="uid://dajlrgni5arej"
+>>>>>>> Stashed changes
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 <<<<<<<HEADrun/main_scene="uid://dsu5spxa31avy"
