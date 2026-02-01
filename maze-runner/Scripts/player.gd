@@ -192,9 +192,17 @@ func Reset_Collision_Mask():
 
 func _on_area_2d_area_entered( area: Area2D ) -> void:
 	
+	print()
+	
 	if area.name.contains( "oid" ):
 		
 		restart_game( )
+		
+	elif area.name.contains( "be" ) and SignalBus.key_pice_amount_picket_up == 3:
+		
+		get_tree( ).change_scene_to_file("res://Scenes/end_scene.tscn")
+	
+	print(SignalBus.key_pice_amount_picket_up)
 
 func restart_game():
 	
@@ -203,5 +211,7 @@ func restart_game():
 		if child is AudioStreamPlayer2D:
 		
 			SignalBus.sound_loop_location = child.get_playback_position( )
+	
+	SignalBus.key_pice_amount_picket_up = 0
 	
 	get_tree( ).reload_current_scene( )
