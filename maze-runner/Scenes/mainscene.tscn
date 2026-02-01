@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dajlrgni5arej"]
 
-[ext_resource type="PackedScene" path="res://Scenes/player.tscn" id="1_5yt03"]
+[ext_resource type="PackedScene" uid="uid://bj2hcu3iia8u" path="res://Scenes/player.tscn" id="1_5yt03"]
 [ext_resource type="PackedScene" uid="uid://b4uh1s7i1kwjg" path="res://Scenes/tilemap.tscn" id="8_gjgc6"]
 
 [node name="Veggtest" type="Node2D" unique_id=348419336]
@@ -11,5 +11,9 @@ tile_map_data = PackedByteArray("AAAAAAAACgABAAIAAAAAAAEACgABAAMAAAAAAAIACgABAAM
 [node name="Player" parent="." unique_id=2077401685 instance=ExtResource("1_5yt03")]
 z_index = -1
 position = Vector2(28.000004, 72)
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.05, 0.05)
 collision_mask = 61
+axeleration = 1250
+friction = 0.8
+bounce_reduction = 2.0
+player_animation_walk_threshold = 75

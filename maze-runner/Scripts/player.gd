@@ -14,6 +14,7 @@ var player_input_vector : Vector2
 var player_animation_type_string: String
 @export var player_animation_stand_threshold = 100
 @export var player_animation_walk_threshold = 750
+@export var speed_to_zero = 1
 
 var player_look_direction : Vector2
 
@@ -53,7 +54,7 @@ func _process( delta: float ) -> void:
 	
 	velocity *= friction
 	
-	if  abs(velocity.x) + abs(velocity.y) < 10 :
+	if  abs(velocity.x) + abs(velocity.y) < speed_to_zero :
 		
 		velocity = Vector2( 0, 0 )
 	
