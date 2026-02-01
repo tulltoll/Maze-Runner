@@ -153,12 +153,17 @@ func _process( delta: float ) -> void:
 			player_sprite.flip_h = false
 			player_animation.current_animation = player_animation_type_string + "_up"
 	#endring av maske
-	if Input.is_action_just_pressed("blue_mask"):
+	if Input.is_action_just_pressed("blue_mask") and !Input.is_action_just_pressed("red_mask"):
 		blue_mask_is_on = !blue_mask_is_on
 		print("blue", red_mask_is_on)
 		Change_Collision()
-	if Input.is_action_just_pressed("red_mask"):
+	elif Input.is_action_just_pressed("red_mask") and !Input.is_action_just_pressed("blue_mask"):
 		red_mask_is_on = !red_mask_is_on
+		print("red", red_mask_is_on)
+		Change_Collision()
+	elif Input.is_action_just_pressed("red_mask") and Input.is_action_just_pressed("blue_mask"):
+		red_mask_is_on = !red_mask_is_on
+		blue_mask_is_on = !blue_mask_is_on
 		print("red", red_mask_is_on)
 		Change_Collision()
 
@@ -168,12 +173,16 @@ func Change_Collision():
 	SignalBus.mask_change.emit()
 	if !blue_mask_is_on and !red_mask_is_on:
 		set_collision_mask_value(collision_variants["white"], false)
+		mask_eye_color.modulate = Color(1,1,1)
 	elif blue_mask_is_on and !red_mask_is_on:
 		set_collision_mask_value(collision_variants["blue"], false)
+		mask_eye_color.modulate = Color(0,0,1)
 	elif red_mask_is_on and !blue_mask_is_on:
 		set_collision_mask_value(collision_variants["red"], false)
+		mask_eye_color.modulate = Color(1,0,0)
 	elif red_mask_is_on and blue_mask_is_on:
 		set_collision_mask_value(collision_variants["purple"], false)
+		mask_eye_color.modulate = Color(1,0,1)
 	SignalBus.mask_change.emit(blue_mask_is_on, red_mask_is_on)
 	print(collision_mask)
 	
