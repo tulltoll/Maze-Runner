@@ -3,22 +3,48 @@ extends CharacterBody2D
 
 var player_input_vector : Vector2
 
-@export var player_aceleration = 3000
+@export var axeleration = 3000
+@export var friction = 0.95
+@export var bounce_reduction = 1.8
 
-@export var player_friction = 0.95
+@onready var player_animation: AnimationPlayer = $AnimationPlayer
+@onready var player_sprite: Sprite2D = $"Player sprite"
+var player_animation_type_string: String
+@export var player_animation_stand_threshold = 100
+@export var player_animation_walk_threshold = 750
 
-@export var player_bounce_reduction = 1.8
+var player_look_direction : Vector2
+
+@onready var mask: Sprite2D = $Mask
+@onready var mask_orginal_position = mask.position
+const MASK = preload("res://Asets/Mask.png")
+const MASK_LEFT = preload("res://Asets/Mask_left_side.png")
+const MASK_RIGHT = preload("res://Asets/Mask_right_side.png")
+@export var mask_run_displasment = 20
+
+@onready var mask_eye_color: Sprite2D = $"Mask/Mask eye color"
+const WHITE_PIXEL_MIDDEL = preload("res://Asets/white_pixel_middel.png")
+const WHITE_PIXEL_LEFT = preload("res://Asets/white_pixel_left.png")
+
+
 
 
 func _process( delta: float ) -> void:
 	
-	player_input_vector = Input.get_vector( "Player_left", "Player_right", "Player_up", "Player_down" )
+	#movement:
+	if Input.get_vector( "Player_left", "Player_right", "Player_up", "Player_down" ):
+		
+		player_input_vector = Input.get_vector( "Player_left", "Player_right", "Player_up", "Player_down" )
+		
+	else:
+		
+		player_input_vector = Vector2( 0, 0)
 	
-	velocity += ( player_input_vector * player_aceleration * delta )
+	velocity += ( player_input_vector * axeleration * delta )
 	
-	velocity *= player_friction
+	velocity *= friction
 	
-	if  abs( velocity.x ) + abs( velocity.y ) < 10 :
+	if  abs(velocity.x) + abs(velocity.y) < 10 :
 		
 		velocity = Vector2( 0, 0 )
 	
@@ -28,8 +54,89 @@ func _process( delta: float ) -> void:
 		
 		velocity = velocity.bounce( collision.get_normal( ) )
 		
-		velocity *=  player_bounce_reduction
-
-#func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
-	#
-	#print("a")
+		velocity *=  bounce_reduction
+	
+	#animations and sprite:
+	
+	if abs(velocity.x) > abs(velocity.y):
+		
+		player_look_direction = Vector2( abs(velocity.x) / velocity.x, 0 )
+	
+	if abs(velocity.y) > abs(velocity.x):
+		
+		player_look_direction = Vector2( 0, abs(velocity.y) / velocity.y )
+	
+	if player_look_direction.x > 0:
+		
+		player_sprite.flip_h = false 
+		
+	elif player_look_direction.x < 0:
+		
+		player_sprite.flip_h = true
+	
+	
+	if abs(velocity.x) + abs(velocity.y) < player_animation_stand_threshold:
+		
+		player_animation_type_string = "stand"
+		
+	elif abs(velocity.x) + abs(velocity.y) < player_animation_walk_threshold:
+		
+		player_animation_type_string = "walk"
+		
+	else:
+		
+		player_animation_type_string = "run"
+	
+	
+	if player_animation_type_string == "run":
+		
+		mask.position = Vector2( mask_orginal_position.x + player_look_direction.x * mask_run_displasment, mask_orginal_position.y + player_look_direction.y * mask_run_displasment )
+		
+	else:
+		
+		mask.position = mask_orginal_position
+	
+	
+	if player_look_direction.x:
+		
+		player_animation.current_animation = player_animation_type_string + "_side"
+		
+		if player_look_direction.x < 0:
+			
+			mask.flip_h = false
+			mask.texture = MASK_LEFT
+			mask.z_index = 3
+			
+			mask_eye_color.texture = WHITE_PIXEL_LEFT
+			mask_eye_color.flip_h = false
+			
+		elif player_look_direction.x > 0:
+			
+			mask.flip_h = false
+			mask.texture = MASK_RIGHT
+			mask.z_index = 3
+			
+			mask_eye_color.texture = WHITE_PIXEL_LEFT
+			mask_eye_color.flip_h = true
+		
+	else:
+		
+		mask_eye_color.texture = WHITE_PIXEL_MIDDEL
+		
+		if player_look_direction.y > 0:
+		
+			mask.flip_h = false
+			mask.texture = MASK
+			mask.z_index = 3
+			
+			player_sprite.flip_h = false
+			player_animation.current_animation = player_animation_type_string + "_down"
+			
+		elif player_look_direction.y < 0:
+			
+			mask.z_index = 1
+			mask.texture = MASK
+			mask.flip_h = true
+			
+			player_sprite.flip_h = false
+			player_animation.current_animation = player_animation_type_string + "_up"

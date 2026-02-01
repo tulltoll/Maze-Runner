@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://x2vtmgpgnmdr"]
+
+[ext_resource type="Texture2D" uid="uid://f1t3kyi7yvpw" path="res://Asets/the_void.png" id="1_g703r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gcqhr"]
+radius = 8.0
+
+[node name="TheVoid" type="Area2D" unique_id=733811498]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1506214151]
+texture = ExtResource("1_g703r")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1206993978]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=883147329]
+shape = SubResource("CircleShape2D_gcqhr")
