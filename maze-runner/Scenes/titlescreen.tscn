@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cgihfx8fjekyl"]
+
+[ext_resource type="Texture2D" uid="uid://bhtptt7nkdhla" path="res://Sprites/titlescreen gamejam 2026 2-Sheet.png" id="1_3lblr"]
+[ext_resource type="Texture2D" uid="uid://oy74yddqdbco" path="res://Sprites/titlescreen gamejam 2026 button1.png" id="1_h87bp"]
+[ext_resource type="Texture2D" uid="uid://bnqtu3bre3vfx" path="res://Sprites/titlescreen gamejam 2026 button2.png" id="2_qf0g6"]
+[ext_resource type="Script" uid="uid://dttiy31r1mwv1" path="res://Scenes/playbutton.gd" id="2_wshof"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lblr"]
+atlas = ExtResource("1_3lblr")
+region = Rect2(0, 0, 177, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4xby"]
+atlas = ExtResource("1_3lblr")
+region = Rect2(177, 0, 177, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h87bp"]
+atlas = ExtResource("1_3lblr")
+region = Rect2(0, 100, 177, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wshof"]
+atlas = ExtResource("1_3lblr")
+region = Rect2(177, 100, 177, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qf0g6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lblr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4xby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h87bp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wshof")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Titlescreen" type="CanvasLayer" unique_id=1768956644]
+
+[node name="Control" type="Control" parent="." unique_id=1298391427]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1839109464]
+z_index = 1
+offset_left = 59.0
+offset_top = 134.0
+offset_right = 638.25
+offset_bottom = 461.0
+scale = Vector2(5.520001, 4.7600007)
+texture_normal = ExtResource("1_h87bp")
+texture_pressed = ExtResource("1_h87bp")
+texture_hover = ExtResource("2_qf0g6")
+script = ExtResource("2_wshof")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=274519636]
+position = Vector2(579.25, 327)
+scale = Vector2(6.528249, 6.5199995)
+sprite_frames = SubResource("SpriteFrames_qf0g6")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Maze-Runner"
-run/main_scene="uid://dajlrgni5arej"
+run/main_scene="uid://cgihfx8fjekyl"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 <<<<<<<HEADrun/main_scene="uid://dsu5spxa31avy"
