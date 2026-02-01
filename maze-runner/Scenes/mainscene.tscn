@@ -25,7 +25,3 @@ stream = ExtResource("3_a3v7h")
 autoplay = true
 
 [node name="UI" parent="." unique_id=427984612 instance=ExtResource("5_c5s60")]
-offset_left = -20.0
-offset_top = 90.0
-offset_right = -20.0
-offset_bottom = 90.0
